@@ -1,0 +1,4 @@
+/urlshortener-go
+*.test
+/tmp/
+.DS_Store
