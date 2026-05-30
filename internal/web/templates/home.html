@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CortaURL — Acortador de enlaces</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>🔗 CortaURL</h1>
+    <p class="sub">Pega una URL larga y obtén un enlace corto.</p>
+
+    {{if .Error}}<p class="error">{{.Error}}</p>{{end}}
+
+    <form method="post" action="/shorten">
+      <input type="text" name="url"
+             placeholder="https://ejemplo.com/una-direccion-muy-larga" autofocus>
+      <button type="submit">Acortar</button>
+    </form>
+
+    <h2>Enlaces recientes</h2>
+    {{if .Recent}}
+    <ul class="links">
+      {{range .Recent}}
+      <li>
+        <a class="short" href="/{{.Code}}">/{{.Code}}</a>
+        <span class="target">{{.URL}}</span>
+        <span class="clicks">{{.Clicks}} clics</span>
+      </li>
+      {{end}}
+    </ul>
+    {{else}}
+    <p class="empty">Todavía no hay enlaces. ¡Crea el primero!</p>
+    {{end}}
+  </main>
+</body>
+</html>
