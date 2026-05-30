@@ -1,0 +1,18 @@
+# Blueprint de Render: crea el servicio web + el Redis y los conecta solos.
+services:
+  - type: web
+    name: cortaurl
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          name: cortaurl-redis
+          type: keyvalue
+          property: connectionString
+
+  - type: keyvalue
+    name: cortaurl-redis
+    plan: free
+    ipAllowList: []
