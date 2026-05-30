@@ -1,7 +1,5 @@
 # CortaURL — Acortador de URLs (Go + Redis)
 
-[![CI](https://github.com/samuelcatalanz123/urlshortener-go/actions/workflows/ci.yml/badge.svg)](https://github.com/samuelcatalanz123/urlshortener-go/actions/workflows/ci.yml)
-
 Aplicación web que acorta URLs y cuenta los clics. Servidor en **Go**
 (`net/http`, `html/template`) que guarda los enlaces en **Redis**.
 
